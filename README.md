@@ -69,4 +69,4 @@ npm test
 
 ## Discussion
 
-In this take-home coding challenge, I chose to solve the phone number problem using Node.js. I created a function, assignContact, that will randomly assign customers to an Aisle phone number without breaching the 1,000 threshold where SMS providers filter out messages. Additionall, I implemented Mocha unit testing to evaluate the efficacy of this function.
+In this take-home coding challenge, I chose to solve the phone number problem using Node.js. I created a function, assignContact, that will randomly assign customers to an Aisle phone number without breaching the 1,000 threshold where SMS providers filter out messages. Additionally, I implemented Mocha unit testing to evaluate the efficacy of this function.
