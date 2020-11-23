@@ -47,7 +47,9 @@ describe('Tests: assignContacts', () => {
         results.forEach(number => map[number.id] = number.recipients.length)
       }
     }
+    // Ensure error is thrown
     assert.throws(isErrorThrown, Error, "All available numbers have reached their maximum recipient capacity!")
+    // Validate that each number has reached its capacity (999)
     Object.values(map).forEach(count => assert.equal(count, 999))
   })
 
