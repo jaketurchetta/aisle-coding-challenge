@@ -42,9 +42,11 @@ const assignContact = (data, phoneNumber) => {
   // Push new onboarded number into appropriate recipients array
   validNumbers[index].recipients.push(phoneNumber)
 
+  // Return data array
   return data
 
 }
 
+// Export for testing
 exports.assignContact = assignContact
 exports.data = data
