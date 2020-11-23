@@ -36,6 +36,9 @@ const assignContact = (data, phoneNumber) => {
   // Filter data to numbers that still have less than 1,000 recipients
   let validNumbers = data.filter(item => item.recipients.length < 999)
 
+  // Throw error if there are no remaining valid numbers
+  if (!validNumbers.length) throw new Error("All available numbers have reached their maximum recipient capacity!")
+
   // Select one of the remaining numbers at random
   let index = Math.floor(Math.random() * validNumbers.length)
 

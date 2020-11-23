@@ -31,5 +31,25 @@ describe('Tests: assignContacts', () => {
     results.forEach(number => assert.equal(0 <= number.recipients.length && number.recipients.length <= 2500, true))
   })
 
+  // Test case: 6,000 randomly assigned numbers (beyond)
+  it('should throw an error after assigning each number 999 recipients', () => {
+    let dataCopy = JSON.parse(JSON.stringify(data))
+    let results, map = {
+      "461589ac-460d-4ef6-a47e-c206e9d150c5": 0,
+      "707ca73c-1397-4e7c-9a4d-34200ca24ae5": 0,
+      "98728336-922d-4bd4-b19a-3d5d4705de23": 0,
+      "f3b675aa-d63c-4aa0-9ed1-5c0405dcc760": 0,
+      "ddf9fbd3-a67c-40cc-a52a-52ba19d5afc7": 0
+    }
+    const isErrorThrown = () => {
+      for (let i = 0; i < 6000; i++) {
+        results = assignContact(dataCopy, faker.phone.phoneNumber('+1##########'))
+        results.forEach(number => map[number.id] = number.recipients.length)
+      }
+    }
+    assert.throws(isErrorThrown, Error, "All available numbers have reached their maximum recipient capacity!")
+    Object.values(map).forEach(count => assert.equal(count, 999))
+  })
+
 })
 
