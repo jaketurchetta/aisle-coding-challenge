@@ -2,7 +2,7 @@
   "name": "aisle-coding-challenge",
   "version": "1.0.0",
   "description": "Coding challenge for Software Engineer position at Aisle.",
-  "main": "playground.js",
+  "main": "src/assignContact.js",
   "scripts": {
     "test": "mocha"
   },
